@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("member")
@@ -20,12 +22,16 @@ public class TutorialController {
     private MemberService memberService;
 
     @GetMapping("list")
-    public List<MemberTbo> findAllMember() {
+    public Map<String, Object> findAllMember() {
+        Map<String, Object> response = new HashMap<>();
+
         List<MemberTbo> result = memberService.findAllMember();
 
-        LOGGER.info("findAllMember result ::::: {}", result);
+        LOGGER.info(" TutorialController findAllMember result ::::: {}", result);
 
-        return result;
+        response.put("result", result);
+
+        return response;
     }
 
 }

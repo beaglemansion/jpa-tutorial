@@ -21,6 +21,9 @@ public class MemberJpaStore implements MemberStore {
     @Override
     public List<MemberTbo> readAllMember() {
         List<MemberTbo> tbos = repository.findAll();
+
+        LOGGER.info("MemberJpaStore findAllMember result ::::: {}", tbos);
+
         return tbos;
     }
 }

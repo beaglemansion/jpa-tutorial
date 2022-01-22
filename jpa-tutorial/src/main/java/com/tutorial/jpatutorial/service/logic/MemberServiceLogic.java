@@ -20,6 +20,10 @@ public class MemberServiceLogic implements MemberService {
 
     @Override
     public List<MemberTbo> findAllMember() {
-        return memberStore.readAllMember();
+
+        List<MemberTbo> result = memberStore.readAllMember();
+        LOGGER.info("MemberServiceLogic findAllMember result ::::: {}", result);
+
+        return result;
     }
 }
