@@ -1,10 +1,22 @@
 package com.tutorial.jpatutorial.service;
 
+import com.tutorial.jpatutorial.domain.Member;
 import com.tutorial.jpatutorial.store.jpa.repository.entity.MemberTbo;
 
 import java.util.List;
 
 public interface MemberService {
 
-    List<MemberTbo> findAllMember();
+    /**
+     * 멤버 전제 조회
+     * @return
+     */
+    List<Member> findAllMember();
+
+    /**
+     * 멤버 등록
+     * @param member
+     * @return
+     */
+    String registerMember(Member member) throws Exception;
 }
