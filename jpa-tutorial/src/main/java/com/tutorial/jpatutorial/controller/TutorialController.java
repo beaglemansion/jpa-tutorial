@@ -1,6 +1,7 @@
 package com.tutorial.jpatutorial.controller;
 
 import com.tutorial.jpatutorial.domain.Member;
+import com.tutorial.jpatutorial.dto.MemberDto;
 import com.tutorial.jpatutorial.service.MemberService;
 import com.tutorial.jpatutorial.store.jpa.repository.entity.MemberTbo;
 import org.slf4j.Logger;
@@ -40,5 +41,15 @@ public class TutorialController {
 
         return memberService.registerMember(member);
     }
+
+    @GetMapping("test")
+    public MemberDto test() {
+        LOGGER.info(" TutorialController test  ::::: start ");
+        MemberDto result = memberService.findOne();
+
+        LOGGER.info(" TutorialController test  ::::: {}", result);
+        return result;
+    }
+
 
 }

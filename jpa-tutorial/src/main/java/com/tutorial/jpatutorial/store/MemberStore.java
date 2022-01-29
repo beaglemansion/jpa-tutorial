@@ -2,6 +2,7 @@ package com.tutorial.jpatutorial.store;
 
 
 import com.tutorial.jpatutorial.domain.Member;
+import com.tutorial.jpatutorial.dto.MemberDto;
 
 import java.util.List;
 
@@ -25,4 +26,10 @@ public interface MemberStore {
      * @return
      */
     Member readById(String id);
+
+
+    /**
+     * mapstruct테스트
+     */
+    MemberDto readOne();
 }

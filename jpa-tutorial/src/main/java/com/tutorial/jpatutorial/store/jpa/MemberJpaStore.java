@@ -1,9 +1,11 @@
 package com.tutorial.jpatutorial.store.jpa;
 
 import com.tutorial.jpatutorial.domain.Member;
+import com.tutorial.jpatutorial.dto.MemberDto;
 import com.tutorial.jpatutorial.store.MemberStore;
 import com.tutorial.jpatutorial.store.jpa.repository.MemberRepository;
 import com.tutorial.jpatutorial.store.jpa.repository.entity.MemberTbo;
+import com.tutorial.jpatutorial.store.mapper.MemberMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +49,19 @@ public class MemberJpaStore implements MemberStore {
             return null;
         }
         return memberTbo.toDomain();
+    }
+
+    /**
+     * mapstruct테스트
+     * @return
+     */
+    @Override
+    public MemberDto readOne() {
+        MemberTbo tbo = repository.findById("1").orElse(null);
+        LOGGER.info("MemberJpaStore readOne  ::::: {}", tbo);
+
+        MemberDto result = MemberMapper.INSTANCE.toMemberDto_1(tbo);
+
+        return result;
     }
 }
