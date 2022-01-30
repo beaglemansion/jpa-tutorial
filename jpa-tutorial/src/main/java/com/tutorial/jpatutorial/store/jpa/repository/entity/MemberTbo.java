@@ -22,6 +22,10 @@ public class MemberTbo {
     @Id
     private String id;
     private String name;
+    private String age;
+    private String team;
+    private String gender;
+
 
     // TBO -> DTO
     public Member toDomain() {

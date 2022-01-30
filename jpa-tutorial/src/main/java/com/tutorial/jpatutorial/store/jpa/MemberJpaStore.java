@@ -60,7 +60,7 @@ public class MemberJpaStore implements MemberStore {
         MemberTbo tbo = repository.findById("1").orElse(null);
         LOGGER.info("MemberJpaStore readOne  ::::: {}", tbo);
 
-        MemberDto result = MemberMapper.INSTANCE.toMemberDto_1(tbo);
+        MemberDto result = MemberMapper.INSTANCE.toMemberDto_2(tbo);
 
         return result;
     }

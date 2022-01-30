@@ -2,6 +2,8 @@ package com.tutorial.jpatutorial.dto;
 
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * TBO로부터 데이터를 넘겨받고
  * DTO, VO 역할하는 객체
@@ -14,4 +16,10 @@ public class MemberDto {
 
     private int memberId;
     private String memberName;
+
+    private int memberAge;
+    private String memberGroup; // target
+    private String memberGender; // ignore
+
+    private String createdat; // expression
 }
