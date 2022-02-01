@@ -1,7 +1,7 @@
 package com.tutorial.jpatutorial.service.logic;
 
 import com.tutorial.jpatutorial.domain.Member;
-import com.tutorial.jpatutorial.dto.MemberDto;
+import com.tutorial.jpatutorial.dto.MemberDTO;
 import com.tutorial.jpatutorial.service.MemberService;
 import com.tutorial.jpatutorial.store.MemberStore;
 import org.slf4j.Logger;
@@ -52,8 +52,17 @@ public class MemberServiceLogic implements MemberService {
      * @return
      */
     @Override
-    public MemberDto findOne() {
+    public MemberDTO findOne() {
 
         return memberStore.readOne();
+    }
+
+    /**
+     * mapstruct테스트
+     * @return
+     */
+    @Override
+    public List<MemberDTO> findMany() {
+        return memberStore.readMany();
     }
 }

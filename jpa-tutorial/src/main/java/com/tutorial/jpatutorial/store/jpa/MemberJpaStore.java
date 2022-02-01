@@ -1,7 +1,8 @@
 package com.tutorial.jpatutorial.store.jpa;
 
 import com.tutorial.jpatutorial.domain.Member;
-import com.tutorial.jpatutorial.dto.MemberDto;
+import com.tutorial.jpatutorial.dto.MemberDTO;
+import com.tutorial.jpatutorial.dto.MemberDTO;
 import com.tutorial.jpatutorial.store.MemberStore;
 import com.tutorial.jpatutorial.store.jpa.repository.MemberRepository;
 import com.tutorial.jpatutorial.store.jpa.repository.entity.MemberTbo;
@@ -56,12 +57,24 @@ public class MemberJpaStore implements MemberStore {
      * @return
      */
     @Override
-    public MemberDto readOne() {
+    public MemberDTO readOne() {
         MemberTbo tbo = repository.findById("1").orElse(null);
         LOGGER.info("MemberJpaStore readOne  ::::: {}", tbo);
 
-        MemberDto result = MemberMapper.INSTANCE.toMemberDto_2(tbo);
+        MemberDTO result = MemberMapper.INSTANCE.toMemberDto_2(tbo);
 
+        return result;
+    }
+    /**
+     * mapstruct테스트
+     * @return
+     */
+    @Override
+    public List<MemberDTO> readMany() {
+        List<MemberTbo> tbo = repository.findAll();
+        LOGGER.info("MemberJpaStore readMany  ::::: {}", tbo);
+
+        List<MemberDTO> result = MemberMapper.INSTANCE.toMemberDto_3(tbo);
         return result;
     }
 }

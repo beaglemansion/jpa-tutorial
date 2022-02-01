@@ -1,7 +1,8 @@
 package com.tutorial.jpatutorial.service;
 
 import com.tutorial.jpatutorial.domain.Member;
-import com.tutorial.jpatutorial.dto.MemberDto;
+import com.tutorial.jpatutorial.dto.MemberDTO;
+import com.tutorial.jpatutorial.dto.MemberDTO;
 import com.tutorial.jpatutorial.store.jpa.repository.entity.MemberTbo;
 
 import java.util.List;
@@ -25,5 +26,6 @@ public interface MemberService {
      * mapstruct 테스트
      * @return
      */
-    MemberDto findOne();
+    MemberDTO findOne();
+    List<MemberDTO> findMany();
 }

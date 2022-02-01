@@ -1,7 +1,8 @@
 package com.tutorial.jpatutorial.controller;
 
 import com.tutorial.jpatutorial.domain.Member;
-import com.tutorial.jpatutorial.dto.MemberDto;
+import com.tutorial.jpatutorial.dto.MemberDTO;
+import com.tutorial.jpatutorial.dto.MemberDTO;
 import com.tutorial.jpatutorial.service.MemberService;
 import com.tutorial.jpatutorial.store.jpa.repository.entity.MemberTbo;
 import org.slf4j.Logger;
@@ -43,13 +44,28 @@ public class TutorialController {
     }
 
     @GetMapping("test")
-    public MemberDto test() {
+    public MemberDTO test() {
         LOGGER.info(" TutorialController test  ::::: start ");
-        MemberDto result = memberService.findOne();
+        MemberDTO result = memberService.findOne();
 
         LOGGER.info(" TutorialController test  ::::: {}", result);
         return result;
     }
+    @GetMapping("test2")
+    public List<MemberDTO> test2() {
+        LOGGER.info(" TutorialController test2  ::::: start ");
+        List<MemberDTO> result = memberService.findMany();
 
+        LOGGER.info(" TutorialController test2  ::::: {}", result);
+        return result;
+    }
+    @GetMapping("test3")
+    public MemberDTO test3() {
+        LOGGER.info(" TutorialController test3  ::::: start ");
+        MemberDTO result = memberService.findOne();
+
+        LOGGER.info(" TutorialController test3  ::::: {}", result);
+        return result;
+    }
 
 }

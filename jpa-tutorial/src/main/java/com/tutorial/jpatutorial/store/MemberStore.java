@@ -2,7 +2,7 @@ package com.tutorial.jpatutorial.store;
 
 
 import com.tutorial.jpatutorial.domain.Member;
-import com.tutorial.jpatutorial.dto.MemberDto;
+import com.tutorial.jpatutorial.dto.MemberDTO;
 
 import java.util.List;
 
@@ -31,5 +31,6 @@ public interface MemberStore {
     /**
      * mapstruct테스트
      */
-    MemberDto readOne();
+    MemberDTO readOne();
+    List<MemberDTO> readMany();
 }
