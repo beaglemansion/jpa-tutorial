@@ -15,10 +15,10 @@ public class MemberDTO {
     private int memberId;
     private String memberName;
 
-//    private int memberAge;
-//    private String memberGroup; // target
-//    private String memberGender; // ignore
-//    private String createdat; // expression
+    private int memberAge;
+    private String memberGroup; // target
+    private String memberGender; // ignore
+    private String createdat; // expression
 
     private AdditionalInfoDTO additionalInfoDTO;
 }

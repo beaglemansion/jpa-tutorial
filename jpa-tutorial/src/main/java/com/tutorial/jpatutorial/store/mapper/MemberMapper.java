@@ -1,5 +1,6 @@
 package com.tutorial.jpatutorial.store.mapper;
 
+import com.tutorial.jpatutorial.dto.AdditionalInfoDTO;
 import com.tutorial.jpatutorial.dto.MemberDTO;
 import com.tutorial.jpatutorial.store.jpa.repository.entity.MemberTbo;
 import org.mapstruct.IterableMapping;
@@ -42,9 +43,27 @@ public interface MemberMapper {
         String strNowDate = simpleDateFormat.format(now);
         return  strNowDate;
     }
-    //////////////////////////////////////////////////////////
 
+    ////////////////////////////////////////////////////////////////////
     // Collection 매핑 - List<Object>
     @IterableMapping(qualifiedByName ="E2D")
     List<MemberDTO> toMemberDto_3(List<MemberTbo> memberTbo);
+
+
+    ///////////////////////////////////////////////////////////////////
+    // 객체를 속성에 추가
+    @Mapping(source = "id", target = "memberId")
+    @Mapping(source = "name", target = "memberName")
+    @Mapping(target = "additionalInfoDTO", expression = "java(toAdditionalInfoDTO(memberTbo))")
+    MemberDTO toMemberDto_4(MemberTbo memberTbo);
+
+    // 커스텀 메서드 1
+    @Mapping(source = "age", target = "memberAge")
+    @Mapping(source = "team", target = "memberGroup")
+    @Mapping(source = "gender", target = "memberGender")
+    @Mapping(target = "createdat", expression = "java(createDatetime())") // 구현한 메서드 사용
+    AdditionalInfoDTO toAdditionalInfoDTO(MemberTbo memberTbo);
+
+    /////////////////////////////////////////////////////////////////////
+
 }
